@@ -109,7 +109,7 @@ h4 {
 
 .icons{
     display: flex;
-    gap: 50px;
+    gap: 30px;
     justify-content: center;
     margin-top: 30px;
 
@@ -709,6 +709,7 @@ footer{
         justify-content: center;
     }
 }
+
 
 
 
