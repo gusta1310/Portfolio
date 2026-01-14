@@ -149,7 +149,7 @@ h4 {
     color: #E1306C;
 }
 .fa-brands.fa-github:hover {
-    color: #333333;
+    color: #6b6a6a;
 }
 .introducao h1 {
     font-size: 50px;
@@ -709,6 +709,7 @@ footer{
         justify-content: center;
     }
 }
+
 
 
 
