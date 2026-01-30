@@ -419,7 +419,23 @@ h4 {
 .card1:hover, .card2:hover, .card3:hover {
     transform: translateY(-10px);
 }
+/* Quando o mouse estiver sobre o container de projetos... */
+.cards-projetos:hover .card1, 
+.cards-projetos:hover .card2, 
+.cards-projetos:hover .card3 {
+    filter: blur(4px); /* Embaça todos os cards */
+    opacity: 0.6;      /* Diminui a opacidade para dar destaque */
+    transition: 0.4s;  /* Transição suave */
+}
 
+/* ...exceto o card que o mouse está exatamente em cima */
+.cards-projetos .card1:hover, 
+.cards-projetos .card2:hover, 
+.cards-projetos .card3:hover {
+    filter: blur(0);   /* Remove o embaçado do selecionado */
+    opacity: 1;        /* Volta a opacidade total */
+    transform: scale(1.05); /* Dá um leve zoom para destacar */
+}
 .tags {
     display: flex;
     gap: 50px;
@@ -736,3 +752,4 @@ footer{
     }
 
 }
+
