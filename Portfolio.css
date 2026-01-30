@@ -537,6 +537,9 @@ h4 {
     border: 2px black solid;
     color: black;
 }
+.area-contato ::placeholder{
+    font-size: 12px;
+}
 .footer img {
     width: 150px;
     height: 100px;
@@ -752,4 +755,5 @@ footer{
     }
 
 }
+
 
