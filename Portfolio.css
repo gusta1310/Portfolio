@@ -10,7 +10,7 @@ body {
 
 section {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateX(-50px); /* Começa fora da tela à esquerda */
   transition:
     opacity 0.8s ease,
     transform 1.5s ease; /* Ajuste a duração e o tipo de transição conforme necessário */
@@ -18,7 +18,7 @@ section {
 
 section.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0); /* Move para a posição original */
 }
 
 .navegation {
@@ -392,7 +392,24 @@ h4 {
   color: black;
   border: 1px black solid;
 }
+/* Quando o mouse estiver sobre o container de projetos... */
+.cards-projetos:hover .card1,
+.cards-projetos:hover .card2,
+.cards-projetos:hover .card3,
+.cards-projetos:hover .card4 {
+  opacity: 0.6; /* Diminui a opacidade para dar destaque */
+  transition: 0.4s; /* Transição suave */
+}
 
+/* ...exceto o card que o mouse está exatamente em cima */
+.cards-projetos .card1:hover,
+.cards-projetos .card2:hover,
+.cards-projetos .card3:hover,
+.cards-projetos .card4:hover {
+  filter: blur(0); /* Remove o embaçado do selecionado */
+  opacity: 1; /* Volta a opacidade total */
+  transform: scale(1.05); /* Dá um leve zoom para destacar */
+}
 .descrição-card1,
 .descrição-card2,
 .descrição-card3,
@@ -413,26 +430,13 @@ h4 {
 .card2:hover,
 .card3:hover,
 .card4:hover {
-  transform: translateY(-10px);
-}
-/* Quando o mouse estiver sobre o container de projetos... */
-.cards-projetos:hover .card1,
-.cards-projetos:hover .card2,
-.cards-projetos:hover .card3,
-.cards-projetos:hover .card4 {
-  opacity: 0.6; /* Diminui a opacidade para dar destaque */
-  transition: 0.4s; /* Transição suave */
+  opacity: 1; /* Mantém o card destacado */
+  transform: scale(1.05); /* Dá um leve zoom */
+  transition:
+    opacity 0.4s,
+    transform 0.3s; /* Transição suave */
 }
 
-/* ...exceto o card que o mouse está exatamente em cima */
-.cards-projetos .card1:hover,
-.cards-projetos .card2:hover,
-.cards-projetos .card3:hover,
-.cards-projetos .card4:hover {
-  filter: blur(0); /* Remove o embaçado do selecionado */
-  opacity: 1; /* Volta a opacidade total */
-  transform: scale(1.05); /* Dá um leve zoom para destacar */
-}
 .tags {
   display: flex;
   gap: 50px;
@@ -756,4 +760,3 @@ footer {
     justify-content: center;
   }
 }
-
