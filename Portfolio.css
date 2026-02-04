@@ -683,7 +683,8 @@ footer {
 
   .card1,
   .card2,
-  .card3 {
+  .card3,
+  .card4 {
     width: 100%;
     max-width: 300px;
     padding: 10px;
@@ -755,3 +756,4 @@ footer {
     justify-content: center;
   }
 }
+
