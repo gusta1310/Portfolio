@@ -25,6 +25,7 @@ Alguns dos projetos listados no portfólio incluem:
 1.  **Landing Page**: Foco em prática de HTML e CSS puro.
 2.  **Site Empresarial**: Interface moderna desenvolvida com foco em UI/UX.
 3.  **Price Cards**: Componentes de precificação para uso profissional.
+4.  **Gerenciador de tarefas**: Um gerenciador de tarefas eficiente construído com React, Tailwind CSS e Lucide React.
 
 ## 👤 Sobre Mim
 
