@@ -9,8 +9,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 // Scroll reveal effect
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
+  threshold: 0.2,
+  rootMargin: "0px 0px -80px 0px",
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -27,14 +27,16 @@ document.querySelectorAll("section").forEach((section) => {
 });
 
 // Typewriter effect
-function typeWriter(element, text, speed = 100) {
+function typeWriter(element, text, speed = 100, callback = null) {
   let i = 0;
-  element.innerHTML = "";
+  element.innerHTML = ""; // Limpa o conteúdo do elemento
   function type() {
     if (i < text.length) {
       element.innerHTML += text.charAt(i);
       i++;
       setTimeout(type, speed);
+    } else if (callback) {
+      callback(); // Chama o callback quando o texto terminar
     }
   }
   type();
@@ -43,5 +45,14 @@ function typeWriter(element, text, speed = 100) {
 // Start typewriter on page load
 window.addEventListener("load", () => {
   const typewriterElement = document.getElementById("typewriter");
-  typeWriter(typewriterElement, "Gustavo Henrique");
+  const subtitleElement = document.querySelector(".info-pessoal h3");
+  typewriterElement.style.fontSize = "50px";
+  // Aplica o efeito de typewriter no h1 e depois no h3
+  typeWriter(typewriterElement, "Gustavo Henrique", 80, () => {
+    typeWriter(
+      subtitleElement,
+      "Desenvolvedor Front-End | Ciência da Computação",
+      30,
+    );
+  });
 });
