@@ -12,13 +12,14 @@ section {
   opacity: 0;
   transform: translateX(-50px); /* Começa fora da tela à esquerda */
   transition:
-    opacity 0.8s ease,
-    transform 1.5s ease; /* Ajuste a duração e o tipo de transição conforme necessário */
+    opacity 0,
+    transform 2s ease; /* Ajuste a duração e o tipo de transição conforme necessário */
 }
 
 section.visible {
   opacity: 1;
-  transform: translateX(0); /* Move para a posição original */
+  transform: translateX(0px); /* Move para a posição original */
+  transition: all 2.5s;
 }
 
 .navegation {
@@ -760,4 +761,5 @@ footer {
     justify-content: center;
   }
 }
+
 
