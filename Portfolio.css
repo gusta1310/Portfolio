@@ -10,7 +10,7 @@ body {
 
 section {
   opacity: 0;
-  transform: translateX(-50px); /* Começa fora da tela à esquerda */
+  transform: translateX(-80px); /* Começa fora da tela à esquerda */
   transition:
     opacity 0,
     transform 1s ease; /* Ajuste a duração e o tipo de transição conforme necessário */
@@ -224,6 +224,7 @@ h4 {
   background-color: #f0f0f0;
   padding: 30px;
   border-radius: 10px;
+  box-shadow: 20px 20px 20px black;
 }
 
 .texto p {
@@ -244,8 +245,6 @@ h4 {
   height: 400px;
   flex-direction: column;
   border-radius: 50px;
-
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .img_curso {
@@ -265,12 +264,12 @@ h4 {
 .img1,
 .img2,
 .img3 {
-  width: 200px;
-  height: 170px;
+  width: 300px;
+  height: 190px;
   margin-top: 20px;
   border-radius: 8px;
   border-bottom: black 4px solid;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px white;
   background-color: white;
   padding: 10px;
   font-size: 15px;
@@ -281,6 +280,7 @@ h4 {
 .img3 ul li {
   list-style: disc;
   text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .box-img {
   display: flex;
@@ -452,6 +452,9 @@ h4 {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #f0f0f0;
+  box-shadow: 10px 20px 20px white;
+  border-right: black 4px solid;
+  border-bottom: black 4px solid;
   max-width: auto;
   max-height: auto;
 }
@@ -662,7 +665,7 @@ footer {
   .img2,
   .img3 {
     width: 250px;
-    height: 150px;
+    height: auto;
   }
 
   .cards-projetos {
@@ -745,5 +748,3 @@ footer {
     justify-content: center;
   }
 }
-
-
