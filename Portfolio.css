@@ -164,6 +164,7 @@ h4 {
   font-size: 24px;
   margin-bottom: 50px;
   color: #555555;
+  font-style: italic;
 }
 
 .introducao p {
@@ -744,3 +745,4 @@ footer {
     justify-content: center;
   }
 }
+
