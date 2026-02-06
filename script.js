@@ -45,7 +45,7 @@ function typeWriter(element, text, speed = 100, callback = null) {
 // Start typewriter on page load
 window.addEventListener("load", () => {
   const typewriterElement = document.getElementById("typewriter");
-  const subtitleElement = document.querySelector(".info-pessoal h3");
+  const subtitleElement = document.querySelector("#subtitle-typewriter");
   typewriterElement.style.fontSize = "50px";
   // Aplica o efeito de typewriter no h1 e depois no h3
   typeWriter(typewriterElement, "Gustavo Henrique", 80, () => {
@@ -56,3 +56,4 @@ window.addEventListener("load", () => {
     );
   });
 });
+
