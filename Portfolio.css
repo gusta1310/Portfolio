@@ -356,7 +356,8 @@ h4 {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+  border-bottom: 4px black solid;
+  border-top: 4px black solid;
   padding: 20px;
   margin: 20px;
   width: 400px;
@@ -748,3 +749,4 @@ footer {
     justify-content: center;
   }
 }
+
