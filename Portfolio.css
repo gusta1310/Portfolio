@@ -679,20 +679,24 @@ footer {
   }
 
   .cards-projetos {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center; /* Centraliza os cards */
+    width: 100%;
+    padding: 0;
   }
 
   .card1,
   .card2,
   .card3,
   .card4 {
-    width: 100%;
+    width: 90%;
     max-width: 300px;
     padding: 10px;
     margin-right: auto;
     margin-left: auto;
     height: auto;
+    box-sizing: border-box;
   }
 
   .skills h3 {
@@ -758,4 +762,3 @@ footer {
     justify-content: center;
   }
 }
-
