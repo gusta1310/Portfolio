@@ -224,7 +224,6 @@ h4 {
   background-color: #f0f0f0;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 20px 20px 20px black;
 }
 
 .texto p {
@@ -354,11 +353,11 @@ h4 {
 .card2,
 .card3,
 .card4 {
-  background-image: linear-gradient(180deg, rgb(49, 49, 49) 30%, white 100%);
+  background-color: #f0f0f0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-bottom: 4px black solid;
-  border-top: 4px black solid;
+  border-top: 4px white solid;
   padding: 20px;
   margin: 20px;
   width: 400px;
@@ -418,7 +417,7 @@ h4 {
 .descrição-card4 p {
   font-size: 15px;
   margin-bottom: 20px;
-  color: white;
+  color: black;
 }
 
 .card1:hover,
@@ -464,9 +463,8 @@ h4 {
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #f0f0f0;
-  box-shadow: 10px 20px 20px white;
-  border-right: black 4px solid;
-  border-bottom: black 4px solid;
+  box-shadow: 10px 10px 10px white;
+
   max-width: auto;
   max-height: auto;
 }
@@ -760,4 +758,3 @@ footer {
     justify-content: center;
   }
 }
-
