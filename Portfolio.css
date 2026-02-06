@@ -10,7 +10,7 @@ body {
 
 section {
   opacity: 0;
-  transform: translateX(-80px); /* Começa fora da tela à esquerda */
+  transform: translateX(-50px); /* Começa fora da tela à esquerda */
   transition:
     opacity 0,
     transform 1s ease; /* Ajuste a duração e o tipo de transição conforme necessário */
@@ -758,3 +758,4 @@ footer {
     justify-content: center;
   }
 }
+
