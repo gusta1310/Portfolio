@@ -6,7 +6,7 @@ body {
   padding: 0;
   scroll-behavior: smooth;
   background-image: linear-gradient(140deg, white 20%, rgb(15, 15, 15) 50%);
-
+}
 
 section {
   opacity: 0;
@@ -200,28 +200,21 @@ h4 {
   margin-top: 50px;
   font-size: 20px;
 }
+
 .sobre-mim h2 {
-  margin-top: 80px;
-  margin-bottom: 90px;
   font-size: 40px;
+  margin-bottom: 50px;
+  color: black;
 }
-
-.sobre-mim h3 {
-  margin-bottom: 100px;
-  font-size: 25px;
-  color: #333333;
-}
-
 .texto-e-imagem {
   display: flex;
   align-items: left;
-  gap: 100px;
+  gap: 150px;
   margin-bottom: 50px;
   font-size: 20px;
 }
 
 .texto {
-  background-color: #f0f0f0;
   padding: 30px;
   border-radius: 10px;
 }
@@ -232,19 +225,31 @@ h4 {
   max-width: 600px;
   margin-top: 10px;
   opacity: 0.6;
+  color: black;
 }
 .texto h5 {
   font-size: 20px;
   margin-top: 30px;
   text-align: left;
+  color: black;
 }
 
 .foto-sobremim {
-  width: 500px;
+  width: 400px;
   height: 400px;
   flex-direction: column;
-  border-radius: 50px;
+  margin-top: 50px;
   border: 4px white solid;
+  display: inline-block;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.644);
+  transform: rotate(10deg);
+  transition: transform 0.3s ease;
+}
+.foto-sobremim img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .img_curso {
@@ -762,4 +767,3 @@ footer {
     justify-content: center;
   }
 }
-
