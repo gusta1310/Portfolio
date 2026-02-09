@@ -5,8 +5,8 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  background-image: linear-gradient(180deg, white 10%, black 80%);
-}
+  background-image: linear-gradient(140deg, white 20%, rgb(15, 15, 15) 50%);
+
 
 section {
   opacity: 0;
@@ -762,3 +762,4 @@ footer {
     justify-content: center;
   }
 }
+
