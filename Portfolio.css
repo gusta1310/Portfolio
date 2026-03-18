@@ -202,21 +202,26 @@ h4 {
 }
 
 .sobre-mim h2 {
-  font-size: 40px;
+  font-size: 50px;
   margin-bottom: 50px;
   color: black;
 }
 .texto-e-imagem {
   display: flex;
-  align-items: left;
-  gap: 150px;
+  align-items: center;
+  gap: 120px;
   margin-bottom: 50px;
   font-size: 20px;
+  margin-top: 70px;
+  background-color: #f0f0f0;
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
 }
 
 .texto {
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .texto p {
@@ -228,21 +233,22 @@ h4 {
   color: black;
 }
 .texto h5 {
-  font-size: 20px;
-  margin-top: 30px;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   text-align: left;
   color: black;
 }
 
 .foto-sobremim {
   width: 400px;
-  height: 400px;
+  height: 500px;
   flex-direction: column;
   margin-top: 50px;
   border: 4px white solid;
   display: inline-block;
   box-shadow: 0 10px 8px rgba(0, 0, 0, 0.644);
-  transform: rotate(10deg);
+  border-radius: 20px;
   transition: transform 0.3s ease;
 }
 .foto-sobremim img {
@@ -296,6 +302,69 @@ h4 {
   align-items: center;
   justify-content: center;
 }
+
+#cursos {
+  padding: 50px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  margin-top: 200px;
+}
+.cursos-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.cursos-container h2 {
+  flex: 1;
+  font-size: 4em;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  margin-top: 350px;
+}
+.cursos-lista {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.cursos-lista li {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 500px;
+  margin-bottom: 20px;
+  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.1);
+  border: #555555 2px solid;
+  transition: transform 0.3s ease;
+}
+.cursos-lista li:hover {
+  background-color: white;
+  border: 2px black solid;
+  color: black;
+  transform: scale(1.05); /* Dá um leve zoom */
+  transition:
+    opacity 0.4s,
+    transform 0.3s; /* Transição suave */
+}
+
+.cursos-lista h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  text-align: center;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cursos-lista p {
+  font-size: 1em;
+  color: #666;
+  text-align: center;
+}
+
 .skills h3 {
   font-size: 30px;
   margin-bottom: 50px;
@@ -327,7 +396,7 @@ h4 {
 }
 
 .projetos h2 {
-  font-size: 40px;
+  font-size: 50px;
   margin-bottom: 70px;
   color: black;
 }
