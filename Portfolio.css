@@ -752,6 +752,25 @@ footer {
     height: auto;
   }
 
+  .cursos-container {
+    display: block; /* Empilha os elementos */
+    text-align: center; /* Centraliza o conteúdo */
+  }
+
+  .cursos-container h2 {
+    margin: 20px 0 40px 0; /* Adiciona espaço abaixo do título */
+    text-align: center; /* Centraliza o título */
+    font-size: 3em;
+  }
+
+  .cursos-lista {
+    padding: 0;
+  }
+
+  .cursos-lista li {
+    margin: 10px auto; /* Centraliza os itens da lista */
+    max-width: 50%; /* Limita a largura dos itens */
+  }
   .cards-projetos {
     display: flex;
     flex-direction: column;
