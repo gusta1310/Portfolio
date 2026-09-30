@@ -122,19 +122,43 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 @keyframes blink{50%{opacity:0}}
 
 /* Revelação das seções ao rolar */
-.js section:not(.hero){opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.js section:not(.hero){opacity:0;transform:translateX(-70px);transition:opacity 1.4s ease,transform 1.4s cubic-bezier(.22,.61,.36,1)}
 .js section.visible{opacity:1;transform:none}
+body{overflow-x:clip}
 
 @media (prefers-reduced-motion:reduce){
   .js section:not(.hero){opacity:1;transform:none}
   .live.typing::after{animation:none}
 }
+@media (max-width:1024px){
+  .hero .wrap{gap:36px}
+  .courses{grid-template-columns:repeat(2,1fr)}
+  .contact{gap:32px}
+}
 @media (max-width:860px){
   section{padding:64px 0}
+  .hero{padding:56px 0 40px}
   .hero .wrap,.about,.projects,.tools,.courses,.contact{grid-template-columns:1fr}
   .hero .wrap{gap:40px}
-  .photo{width:min(78%,300px);order:-1;justify-self:start}
+  .hero p.lead{max-width:none}
+  .photo{width:min(70%,280px);order:-1;justify-self:start}
+  h2.sub{margin-top:48px}
+  html{scroll-padding-top:110px}
+  header.top .wrap{height:auto;flex-wrap:wrap;gap:6px 16px;padding-top:10px;padding-bottom:10px}
+  .tools-right{width:100%;justify-content:space-between;gap:12px}
   nav ul{gap:16px}
+  nav a{font-size:.95rem}
+}
+@media (max-width:480px){
+  body{font-size:1rem}
+  .wrap{padding:0 20px}
+  section{padding:52px 0}
+  .card{padding:22px}
+  .project .body{padding:20px}
+  .actions .btn{flex:1 1 100%;text-align:center}
+  .social a{padding:8px 14px;font-size:.9rem}
+  nav ul{gap:12px}
+  footer .wrap,footer ul{flex-direction:column;gap:10px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
