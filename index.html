@@ -42,7 +42,7 @@ img{max-width:100%;display:block}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-section{padding:88px 0}
+section{padding:140px 0}
 h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
 h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:32px}
 h3{font-size:1.3rem;margin-bottom:8px}
@@ -92,12 +92,32 @@ nav a:hover{color:var(--ink);border-color:var(--accent)}
 .tools h3{font-size:1.05rem;color:var(--muted);font-weight:500;font-family:var(--body);margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
 .chips li{padding:6px 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-weight:500;font-size:.95rem}
-h2.sub{margin-top:64px}
+h2.sub{margin-top:170px}
+.projects{margin-bottom:0}
 
 /* Cursos */
 .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .course .meta{font-size:.92rem;color:var(--muted);margin-bottom:10px}
 .course p{font-size:.98rem}
+
+/* Cursos acadêmicos: painel destacado com linha do tempo */
+.edu{margin-top:170px;background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:64px 56px}
+.edu-head{display:flex;align-items:center;gap:18px;margin-bottom:12px}
+.edu-head .cap{flex:none;width:56px;height:56px;border-radius:16px;background:var(--accent-ink);color:var(--accent);display:grid;place-items:center}
+.edu-head svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.edu-head h2{margin:0}
+.edu-sub{margin-bottom:48px;opacity:.85;max-width:52ch}
+.timeline{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:color-mix(in srgb,var(--accent-ink) 45%,transparent)}
+.timeline li{position:relative;padding-top:40px}
+.timeline li::before{content:"";position:absolute;top:0;left:0;width:18px;height:18px;border-radius:50%;background:var(--accent-ink);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent-ink) 25%,transparent)}
+.ccard{background:var(--surface);color:var(--ink);border-radius:var(--radius);padding:26px;height:100%;display:flex;flex-direction:column;gap:8px;border:1px solid var(--line)}
+.ccard .plat{align-self:flex-start;font-size:.85rem;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.ccard h3{font-size:1.4rem;margin:6px 0 0}
+.ccard time{font-size:.92rem;color:var(--muted);font-weight:500}
+.ccard p{font-size:.98rem;color:var(--muted);flex:1}
+.ccard .ok{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--ink)}
+.ccard .ok svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* Contato */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -136,13 +156,18 @@ body{overflow-x:clip}
   .contact{gap:32px}
 }
 @media (max-width:860px){
-  section{padding:64px 0}
-  .hero{padding:56px 0 40px}
+  section{padding:104px 0}
+  .hero{padding:64px 0 56px}
   .hero .wrap,.about,.projects,.tools,.courses,.contact{grid-template-columns:1fr}
   .hero .wrap{gap:40px}
   .hero p.lead{max-width:none}
   .photo{width:min(70%,280px);order:-1;justify-self:start}
-  h2.sub{margin-top:48px}
+  h2.sub{margin-top:120px}
+  .edu{margin-top:120px;padding:48px 32px}
+  .timeline{grid-template-columns:1fr;padding-left:36px;gap:20px}
+  .timeline::before{left:8px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .timeline li{padding-top:0}
+  .timeline li::before{top:26px;left:-36px}
   html{scroll-padding-top:110px}
   header.top .wrap{height:auto;flex-wrap:wrap;gap:6px 16px;padding-top:10px;padding-bottom:10px}
   .tools-right{width:100%;justify-content:space-between;gap:12px}
@@ -152,8 +177,11 @@ body{overflow-x:clip}
 @media (max-width:480px){
   body{font-size:1rem}
   .wrap{padding:0 20px}
-  section{padding:52px 0}
+  section{padding:84px 0}
   .card{padding:22px}
+  .edu{padding:36px 18px;border-radius:22px}
+  .edu-head .cap{width:46px;height:46px}
+  .ccard{padding:20px}
   .project .body{padding:20px}
   .actions .btn{flex:1 1 100%;text-align:center}
   .social a{padding:8px 14px;font-size:.9rem}
@@ -272,17 +300,23 @@ body{overflow-x:clip}
         <ul class="chips"><li>MySQL</li><li>SQL Server</li><li>MongoDB</li></ul></div>
     </div>
 
-    <h2 class="sub">Cursos acadêmicos</h2>
-    <div class="courses">
-      <div class="card course"><h3>Web Front-end</h3>
-        <div class="meta">Udemy · concluído em janeiro de 2025</div>
-        <p>Curso completo de desenvolvimento web front-end com HTML, CSS e JavaScript.</p></div>
-      <div class="card course"><h3>Python</h3>
-        <div class="meta">Udemy · concluído em março de 2025</div>
-        <p>Curso completo de programação em Python, abordando conceitos fundamentais e avançados.</p></div>
-      <div class="card course"><h3>Power BI</h3>
-        <div class="meta">Udemy · concluído em dezembro de 2025</div>
-        <p>Introdução ao Power BI, focada em análise de dados e visualização.</p></div>
+    <div class="edu">
+      <div class="edu-head">
+        <span class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></svg></span>
+        <h2>Cursos acadêmicos</h2>
+      </div>
+      <p class="edu-sub">Minha formação complementar, em ordem cronológica.</p>
+      <ol class="timeline">
+        <li><div class="ccard"><span class="plat">Udemy</span><h3>Web Front-end</h3><time datetime="2025-01">Janeiro de 2025</time>
+          <p>Curso completo de desenvolvimento web front-end com HTML, CSS e JavaScript.</p>
+          <span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Concluído</span></div></li>
+        <li><div class="ccard"><span class="plat">Udemy</span><h3>Python</h3><time datetime="2025-03">Março de 2025</time>
+          <p>Curso completo de programação em Python, abordando conceitos fundamentais e avançados.</p>
+          <span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Concluído</span></div></li>
+        <li><div class="ccard"><span class="plat">Udemy</span><h3>Power BI</h3><time datetime="2025-12">Dezembro de 2025</time>
+          <p>Introdução ao Power BI, focada em análise de dados e visualização.</p>
+          <span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Concluído</span></div></li>
+      </ol>
     </div>
   </div>
 </section>
