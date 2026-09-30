@@ -1,305 +1,361 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio</title>
-    <link rel="shortcut icon" href="imagens/favicon 2 (2).png" type="image/x-icon">
-    <link rel="stylesheet" href="Portfolio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gustavo Henrique | Desenvolvedor Front-end</title>
+<meta name="description" content="Portfólio de Gustavo Henrique, desenvolvedor front-end. Projetos em HTML, CSS, JavaScript e React.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --ink:#14203a; --muted:#56627a;
+  --line:#d9deea; --accent:#2f5bff; --accent-ink:#ffffff;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'DM Sans','Segoe UI',system-ui,sans-serif;
+  --radius:14px;
+}
+/* Paleta 2: preto e branco */
+:root[data-palette="pb"]{--bg:#ffffff;--surface:#ffffff;--ink:#0a0a0a;--muted:#5c5c5c;--line:#e2e2e2;--accent:#0a0a0a;--accent-ink:#ffffff}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0e1424;--surface:#161e33;--ink:#e9edf7;--muted:#9aa6c0;--line:#27324d;--accent:#7b9bff;--accent-ink:#0e1424}
+  :root[data-palette="pb"]:not([data-theme="light"]){--bg:#0a0a0a;--surface:#141414;--ink:#f5f5f5;--muted:#a3a3a3;--line:#2a2a2a;--accent:#ffffff;--accent-ink:#0a0a0a}
+}
+:root[data-theme="dark"]{--bg:#0e1424;--surface:#161e33;--ink:#e9edf7;--muted:#9aa6c0;--line:#27324d;--accent:#7b9bff;--accent-ink:#0e1424}
+:root[data-palette="pb"][data-theme="dark"]{--bg:#0a0a0a;--surface:#141414;--ink:#f5f5f5;--muted:#a3a3a3;--line:#2a2a2a;--accent:#ffffff;--accent-ink:#0a0a0a}
+
+/* Seletor de paleta */
+.palette{display:flex;gap:8px;align-items:center}
+.palette button{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;transition:transform .15s,border-color .15s}
+.palette button[data-p="azul"]{background:#2f5bff}
+.palette button[data-p="pb"]{background:linear-gradient(90deg,#0a0a0a 50%,#ffffff 50%)}
+.palette button[aria-pressed="true"]{border-color:var(--ink);transform:scale(1.15)}
+.tools-right{display:flex;align-items:center;gap:24px}
+.social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.social a{display:inline-flex;align-items:center;gap:8px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;font-size:1.05rem}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:32px}
+h3{font-size:1.3rem;margin-bottom:8px}
+
+/* Cabeçalho */
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--display);font-weight:800;text-decoration:none;font-size:1.15rem}
+nav ul{display:flex;gap:28px;list-style:none;padding:0}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--ink);border-color:var(--accent)}
+
+/* Hero */
+.hero{padding:96px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:800;margin-bottom:20px}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34ch;margin-bottom:32px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-ink);border:2px solid var(--accent);transition:transform .15s,box-shadow .15s;cursor:pointer;font:inherit;font-weight:700}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px -8px var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--accent);box-shadow:none}
+.social{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.social a{padding:8px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.95rem;color:var(--muted);background:var(--surface);transition:color .2s,border-color .2s}
+.social a:hover{color:var(--ink);border-color:var(--accent)}
+.photo{position:relative;justify-self:center;width:min(100%,340px)}
+.photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px;border:1px solid var(--line)}
+.photo::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--accent);border-radius:28px;z-index:-1}
+
+/* Sobre */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+.card p{color:var(--muted)}
+
+/* Projetos */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+.project:hover{border-color:var(--accent)}
+.project img{aspect-ratio:16/10;object-fit:cover;width:100%;border-bottom:1px solid var(--line);background:var(--line)}
+.project .body{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.project p{color:var(--muted);flex:1}
+.project a.link{font-weight:700;color:var(--accent);text-decoration:none}
+.project a.link:hover{text-decoration:underline}
+
+/* Ferramentas */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tools h3{font-size:1.05rem;color:var(--muted);font-weight:500;font-family:var(--body);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.chips li{padding:6px 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-weight:500;font-size:.95rem}
+h2.sub{margin-top:64px}
+
+/* Cursos */
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.course .meta{font-size:.92rem;color:var(--muted);margin-bottom:10px}
+.course p{font-size:.98rem}
+
+/* Contato */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+form{display:grid;gap:16px}
+label{font-weight:500;font-size:.95rem;display:grid;gap:6px}
+input,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+input:focus,textarea:focus{outline:3px solid color-mix(in srgb,var(--accent) 45%,transparent);border-color:var(--accent)}
+textarea{min-height:130px;resize:vertical}
+.contact img{border-radius:var(--radius);border:1px solid var(--line);margin-top:24px}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer ul{display:flex;gap:20px;list-style:none;padding:0}
+footer a{text-decoration:none}footer a:hover{color:var(--ink)}
+
+/* Efeito máquina de escrever (o texto completo reserva o espaço para a página não pular) */
+.hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem)}
+.hero .subtitle{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--accent);margin-bottom:20px}
+.tw{position:relative;display:block}
+.js .tw .ghost{visibility:hidden}
+.js .tw .live{position:absolute;left:0;top:0;width:100%}
+.live.typing::after{content:"";display:inline-block;width:.09em;height:.85em;background:var(--accent);margin-left:4px;vertical-align:-.05em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Revelação das seções ao rolar */
+.js section:not(.hero){opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.js section.visible{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .js section:not(.hero){opacity:1;transform:none}
+  .live.typing::after{animation:none}
+}
+@media (max-width:860px){
+  section{padding:64px 0}
+  .hero .wrap,.about,.projects,.tools,.courses,.contact{grid-template-columns:1fr}
+  .hero .wrap{gap:40px}
+  .photo{width:min(78%,300px);order:-1;justify-self:start}
+  nav ul{gap:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-    
-    <div class="navegation">
-        <header>
-            <div class="logo">
-                <img src="imagens/ChatGPT Image 5 de jan. de 2026, 20_51_01.png" alt="">
-            </div>
 
-            <div class="trilho" id="trilho">
-                <div class="indicador"></div>
-            </div>
-        <nav>
-            <ul>
-                <li><a href="#Projects">Projetos</a></li>
-                <li><a href="#Contact">Contatos</a></li>
-                <li><a href="#SobreMim">Sobre mim</a></li>
-            </ul>
-        </nav>
-        </header>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Gustavo Henrique</a>
+    <div class="tools-right">
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#Projects">Projetos</a></li>
+          <li><a href="#Contact">Contatos</a></li>
+          <li><a href="#SobreMim">Sobre mim</a></li>
+        </ul>
+      </nav>
+      <div class="palette" role="group" aria-label="Paleta de cores">
+        <button type="button" data-p="azul" aria-label="Paleta azul" aria-pressed="true"></button>
+        <button type="button" data-p="pb" aria-label="Paleta preto e branco" aria-pressed="false"></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 id="typewriter" class="tw" aria-label="Gustavo Henrique"><span class="ghost" aria-hidden="true">Gustavo Henrique</span><span class="live" aria-hidden="true"></span></h1>
+      <p id="subtitle-typewriter" class="subtitle tw" aria-label="Desenvolvedor Front-End | Ciência da Computação"><span class="ghost" aria-hidden="true">Desenvolvedor Front-End | Ciência da Computação</span><span class="live" aria-hidden="true"></span></p>
+      <p class="lead">Tenho 21 anos, sou desenvolvedor front-end e apaixonado por criar soluções digitais inovadoras.</p>
+      <div class="actions">
+        <a class="btn" href="#Projects">Ver projetos</a>
+        <a class="btn ghost" href="imagens/Curriculo%20Gustavo%20Henrique%20(1).pdf">Baixar CV</a>
+      </div>
+      <div class="social">
+        <a href="https://wa.me/5511962367577?text=Oi%2C%20tudo%20bem%3F%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M9.5 8.5c0 3 2 5 5 5.5l1-1.3-1.7-1-.9.6c-.8-.4-1.5-1.1-1.9-1.9l.6-.9-1-1.7z"/></svg>WhatsApp</a>
+        <a href="https://www.linkedin.com/in/gustavohenrique01/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        <a href="https://www.instagram.com/gustah_santosz?igsh=MWlrcjRscnYyOTk4Nw%3D%3D&utm_source=qr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+        <a href="https://github.com/gusta1310" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="imagens/Foto_perfil.jpeg" alt="Foto de Gustavo Henrique" width="340" height="425">
+    </div>
+  </div>
+</section>
+
+<section id="SobreMim">
+  <div class="wrap">
+    <h2>Sobre mim</h2>
+    <div class="about">
+      <div class="card">
+        <h3>Apresentação 👋</h3>
+        <p>Olá, me chamo Gustavo e atualmente estou cursando Ciência da Computação, onde busco uma base teórica e prática robusta. Minha paixão é traduzir ideias complexas em soluções digitais eficientes, funcionais e bem arquitetadas, que proporcionem uma experiência agradável ao usuário.</p>
+      </div>
+      <div class="card">
+        <h3>Objetivos e visão 🎯</h3>
+        <p>Meu objetivo é conquistar uma oportunidade na área de desenvolvimento web, onde eu possa evoluir tecnicamente, colaborar em projetos reais e crescer junto com a empresa. Busco me tornar um profissional completo, com foco em qualidade de código, boas práticas e experiência do usuário. Acredito que a tecnologia tem o poder de transformar vidas e estou comprometido em contribuir para esse impacto positivo através do meu trabalho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="Projects">
+  <div class="wrap">
+    <h2>Projetos</h2>
+    <div class="projects">
+      <article class="project">
+        <img src="imagens/projeto1.png" alt="Captura de tela da Landing Page" loading="lazy">
+        <div class="body">
+          <h3>Landing Page</h3>
+          <p>Landing page desenvolvida para praticar meu conhecimento em HTML e CSS e aplicar conceitos de layout responsivo, organização visual e estruturação semântica.</p>
+          <a class="link" href="https://landingpagex11.netlify.app/" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+      </article>
+      <article class="project">
+        <img src="imagens/projeto2.png" alt="Captura de tela do Site Empresarial" loading="lazy">
+        <div class="body">
+          <h3>Site Empresarial</h3>
+          <p>Site desenvolvido para uma empresa, com HTML, CSS e JavaScript, criando uma interface moderna e funcional. Detalhe: na aba de empreendedorismo usei minha landing page como inspiração.</p>
+          <a class="link" href="https://jjinnovart1.netlify.app/" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+      </article>
+      <article class="project">
+        <img src="imagens/projeto3.png" alt="Captura de tela dos Price Cards" loading="lazy">
+        <div class="body">
+          <h3>Price cards</h3>
+          <p>Projeto de Price Cards desenvolvido para praticar habilidades em HTML, CSS e JavaScript, visando usar profissionalmente no meu portfólio.</p>
+          <a class="link" href="https://pricecards11.netlify.app/" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+      </article>
+      <article class="project">
+        <img src="imagens/Gerenciador.png" alt="Captura de tela do Gerenciador de Tarefas" loading="lazy">
+        <div class="body">
+          <h3>Gerenciador de Tarefas</h3>
+          <p>Gerenciador de tarefas feito com React e Tailwind CSS, para praticar desenvolvimento front-end e me ajudar nas minhas tarefas diárias.</p>
+          <a class="link" href="https://github.com/gusta1310/Projeto-REACT-TAILWIND" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+      </article>
     </div>
 
-    <section class="introducao" id="Contact">
-        <div class="top-section">
-            <div class="info-pessoal">
+    <h2 class="sub">Caixa de Ferramentas</h2>
+    <div class="tools">
+      <div class="card"><h3>Front-end</h3>
+        <ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>Tailwind CSS</li></ul></div>
+      <div class="card"><h3>Back-end</h3>
+        <ul class="chips"><li>Node.js</li><li>Python</li></ul></div>
+      <div class="card"><h3>Banco de dados</h3>
+        <ul class="chips"><li>MySQL</li><li>SQL Server</li><li>MongoDB</li></ul></div>
+    </div>
 
-                <h1 id="typewriter"></h1>
-                <h3 id="subtitle-typewriter"></h3>
-                <div class="icons">
-                <a href="https://wa.me/5511962367577?text=Oi%2C%20tudo%20bem%3F%20" target="_blank" style="color: black;"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.linkedin.com/in/gustavohenrique01/" target="_blank" style="color: black;"><i class="fa-brands fa-linkedin" ></i></a> 
-                <a href="https://www.instagram.com/gustah_santosz?igsh=MWlrcjRscnYyOTk4Nw%3D%3D&utm_source=qr" target="_blank" style="color: black;"> <i class="fa-brands fa-instagram"></i></a> 
-                <a href="https://github.com/gusta1310" target="_blank" style="color: black;"><i class="fa-brands fa-github"></i></a>
-                </div>
-                <a href="imagens/Curriculo Gustavo Henrique (1).pdf" download class="botao-curriculo">Baixar CV</a>
+    <h2 class="sub">Cursos acadêmicos</h2>
+    <div class="courses">
+      <div class="card course"><h3>Web Front-end</h3>
+        <div class="meta">Udemy · concluído em janeiro de 2025</div>
+        <p>Curso completo de desenvolvimento web front-end com HTML, CSS e JavaScript.</p></div>
+      <div class="card course"><h3>Python</h3>
+        <div class="meta">Udemy · concluído em março de 2025</div>
+        <p>Curso completo de programação em Python, abordando conceitos fundamentais e avançados.</p></div>
+      <div class="card course"><h3>Power BI</h3>
+        <div class="meta">Udemy · concluído em dezembro de 2025</div>
+        <p>Introdução ao Power BI, focada em análise de dados e visualização.</p></div>
+    </div>
+  </div>
+</section>
 
-                <br>
-                <p>Olá! Meu nome é Gustavo Henrique, tenho 21 anos e sou desenvolvedor front-end e sou apaixonado por criar soluções digitais inovadoras.</p>
-            </div>
-            
-            <img src="imagens/Foto_perfil.jpeg" alt="Foto de Gustavo Henrique" class="foto-perfil">
-        </div>
-        
-    </section>
+<section id="Contact">
+  <div class="wrap contact">
+    <div>
+      <h2>Vamos conversar! 📬</h2>
+      <p style="color:var(--muted)">Estou aberto a novas oportunidades e projetos interessantes. Preencha o formulário e a mensagem segue direto para o meu WhatsApp.</p>
+      <img src="imagens/Yf73ajZS.jpg" alt="" loading="lazy">
+    </div>
+    <form id="form" novalidate>
+      <label>Seu nome <input name="nome" type="text" autocomplete="name" required></label>
+      <label>Seu e-mail <input name="email" type="email" autocomplete="email" required></label>
+      <label>Mensagem <textarea name="msg" required></textarea></label>
+      <button class="btn" type="submit">Enviar mensagem</button>
+      <p id="status" role="status" style="color:var(--muted);font-size:.95rem"></p>
+    </form>
+  </div>
+</section>
+</main>
 
-        <section class="info-pessoal" id="SobreMim">
-            <div class="sobre-mim">
-            <h2>Sobre mim</h2>
-            
-            <div class="texto-e-imagem">
-                <div class="texto">
+<footer>
+  <div class="wrap">
+    <span>© 2026 Gustavo Henrique. Todos os direitos reservados.</span>
+    <ul>
+      <li><a href="#Projects">Projetos</a></li>
+      <li><a href="#SobreMim">Sobre mim</a></li>
+      <li><a href="#Contact">Contatos</a></li>
+    </ul>
+  </div>
+</footer>
 
-                    <h5>Apresentação 👋 </h5>
-                    <p> Olá me chamo Gustavo, atualmente estou cursando Ciência da Computação, onde busco uma base teórica e prática robusta, 
-                    minha paixão é traduzir ideias complexas em soluções digitais eficientes, funcionais e bem arquitetadas 
-                    que proporcionem uma experiência agradável ao usuário.
-                    </p>
-                    
+<script>
+// Rolagem suave (o "#" sozinho volta ao topo, sem erro)
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=this.getAttribute('href'), alvo=id==='#'?document.body:document.querySelector(id);
+    if(!alvo)return;
+    e.preventDefault();
+    alvo.scrollIntoView({behavior:'smooth'});
+  });
+});
 
-                    <h5>Objetivos e visão 🎯 </h5>
-                    <p>
-                        Meu objetivo é conquistar uma oportunidade na área de desenvolvimento web, onde eu possa evoluir tecnicamente, colaborar em projetos reais e crescer junto com a empresa. 
-                        Busco me tornar um profissional completo, com foco em qualidade de código, boas práticas e experiência do usuário,
-                        Acredito que a tecnologia tem o poder de transformar vidas e estou comprometido em contribuir para esse impacto positivo através do meu trabalho.
-                    </p>
-                    
-                </div>
+// Revelação das seções ao rolar
+var reduzir=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if('IntersectionObserver' in window && !reduzir){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}
+    });
+  },{threshold:0.05,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('section').forEach(function(s){obs.observe(s)});
+}else{
+  document.querySelectorAll('section').forEach(function(s){s.classList.add('visible')});
+}
 
-                <img src="imagens/images.jpg" alt="" class="foto-sobremim"> 
-                
-            </div>
+// Máquina de escrever: título e depois subtítulo
+function typeWriter(el,text,speed,cb){
+  var i=0;
+  el.textContent='';
+  el.classList.add('typing');
+  (function type(){
+    if(i<text.length){el.textContent+=text.charAt(i++);setTimeout(type,speed)}
+    else{el.classList.remove('typing');if(cb)cb()}
+  })();
+}
+window.addEventListener('load',function(){
+  var h=document.querySelector('#typewriter .live'), s=document.querySelector('#subtitle-typewriter .live');
+  var t1='Gustavo Henrique', t2='Desenvolvedor Front-End | Ciência da Computação';
+  if(reduzir){h.textContent=t1;s.textContent=t2;return}
+  typeWriter(h,t1,80,function(){typeWriter(s,t2,30)});
+});
 
-        </div>
-
-            
-        </div>
-        </section>
-        
-            <section class="projects" id="Projects">
-                <div class="projetos">
-                <h2>Projetos</h2>
-                
-                <div class="cards-projetos">
-                    <div class="card1">
-                        <img src="imagens/projeto1.png" alt="Projeto 1">
-                        <div class="descrição-card1">
-                        <h3>Landing Page </h3>
-                        <p>Landing page desenvolvida para praticar meu conhecimento em HTML e CSS e aplicar conceitos de layout responsivo, organização visual e estruturação semântica.  </p>
-                        </div>
-                         <a href="https://landingpagex11.netlify.app/" target="_blank">Ver projeto</a>
-                         
-                        <div class="tags">
-                            <div class="html">
-                            <i class="fa-brands fa-html5" style="color: black;"></i>
-                        </div>
-
-                        <div class="CSS">
-                            <i class="fa-brands fa-css3-alt" style="color: black;"></i>
-                        </div>
-
-                         <div class="JavaScript">
-                            <i class="fa-brands fa-square-js" style="color: black;"></i>
-                        </div>
-                        </div>
-                       
-                        
-                    </div>
-                        
-                    <div class="card2">
-                        <img src="imagens/projeto2.png" alt="Projeto 2">
-                        <div class="descrição-card2">
-                        <h3>Site Empresarial</h3>
-                        <p>Este site empresarial foi desenvolvido para uma empresa, utilizando HTML, CSS e JavaScript para criar uma interface moderna e funcional. Detalhe, a aba de empreendedorismo eu usei minha landing page de inspiração pra fazer</p>
-                        </div>
-                        <a href="https://jjinnovart1.netlify.app/" target="_blank">Ver projeto</a>
-                        <div class="tags">
-                        <div class="html">
-                            <i class="fa-brands fa-html5" style="color: black;"></i>
-                        </div>
-                        <div class="CSS">
-                            <i class="fa-brands fa-css3-alt" style="color: black;"></i>
-                        </div>
-
-                        <div class="JavaScript">
-                            <i class="fa-brands fa-square-js" style="color: black;"></i>
-                        </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card3">
-                        <img src="imagens/projeto3.png" alt="Projeto 3">
-                        <div class="descrição-card2">
-                        <h3>Price cards</h3>
-                        <p>Projeto de Price Cards desenvolvido para praticar habilidades em HTML, CSS e JavaScript, visando usar profissionalmente no meu Portfolio.</p>
-                        </div>
-                        <a href="https://pricecards11.netlify.app/" target="_blank">Ver projeto</a>
-                        <div class="tags">
-                        <div class="html">
-                            <i class="fa-brands fa-html5" style="color: black;"></i>
-                        </div>
-                        <div class="CSS">
-                            <i class="fa-brands fa-css3-alt" style="color: black;"></i>
-                        </div>
-
-                        <div class="JavaScript">
-                            <i class="fa-brands fa-square-js" style="color: black;"></i>
-                        </div>
-
-                        </div>
-                    </div>
-
-                     <div class="card4">
-                        <img src="imagens/Gerenciador.png" alt="Projeto 3">
-                        <div class="descrição-card2">
-                        <h3>Gerenciador de Tarefas</h3>
-                        <p>Projeto de gerenciador de tarefas desenvolvido com React e Tailwind CSS, visando praticar habilidades em desenvolvimento front-end e me ajudar nas minhas tarefas diárias.</p>
-                        </div>
-                        <a href="https://github.com/gusta1310/Projeto-REACT-TAILWIND" target="_blank">Ver projeto</a>
-                        <div class="tags">
-                        <div class="html">
-                            <i class="fa-brands fa-react" style="color: black;"></i>
-                        </div>
-                       
-                        </div>
-                    </div>
-                
-            </section>
-            
-
-            <section>
-                 <div class="skills">
-            <h3>Caixa de Ferramentas</h3>
-            </div>
-            
-            <div class="box-img">
-                 <div class="imagens-experiencia">
-                    <div class="img1">
-                        <i class="fa-solid fa-laptop-code" style="color: black;"></i>
-                        <h4>Front-end</h4>
-                        <ul>
-                            <li>HTML5</li>
-                            <li>CSS3</li>
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>Tailwind CSS</li>
-                        </ul>
-                    </div>
-                    <div class="img2">
-                        <i class="fa-solid fa-laptop-code" style="color: black; "></i>
-                        <h4>Back-end</h4>
-                        <ul>
-                            <li>Node.js</li>
-                            <li>Python</li>
-                        </ul>
-                    </div>
-                    <div class="img3">
-                        <i class="fa-solid fa-computer" style="color: black;"></i>
-                        <h4>Banco de dados</h4>
-                        <ul>
-                            <li>MySQL</li>
-                            <li>SQL Server</li>
-                            <li>MongoDB</li>
-                        </ul>
-                    </div>
-                
-                </div>
-            </div>
-            </section>
-                
-                            
-            <section id="cursos">
-                <div class="cursos-container">
-                    <h2>Cursos acadêmicos</h2>
-                    <ul class="cursos-lista">
-                        <li>
-                            <h3>Web Front-end</h3>
-                            <p>Plataforma: Udemy</p>
-                            <p>Data de Conclusão: Janeiro de 2025</p>
-                            <p>Descrição: Curso completo de desenvolvimento web front-end com HTML, CSS e JavaScript.</p>
-                        </li>
-                        <li>
-                            <h3>Python</h3>
-                            <p>Plataforma: Udemy</p>
-                            <p>Data de Conclusão: Março de 2025</p>
-                            <p>Descrição: Curso completo de programação em Python, abordando conceitos fundamentais e avançados.</p>
-                        </li>
-                        <li>
-                            <h3>Power BI</h3>
-                            <p>Plataforma: Udemy</p>
-                            <p>Data de Conclusão: Dezembro de 2025</p>
-                            <p>Descrição: Curso de introdução ao Power BI, focado em análise de dados e visualização.</p>
-                        </li>
-    <!-- Adicione mais cursos aqui -->
-                    </ul>
-                </div>
-            </section>
-
-
-
-
-            <section class="contatos">
-                <div class="comunicação">
-                    <h2>Vamos conversar! 📬</h2>
-                    <p>Estou aberto a novas oportunidades e projetos interessantes. Sinta-se à vontade para entrar em contato comigo através do link abaixo:</p>
-                    <div class="area-contato">
-                       <form action="https://formspree.io/f/xojvkyje" method="post">
-                        <label for="name">Seu Nome</label>    
-                        <input type="text" name="name" required placeholder="Digite aqui">
-                        <br>
-                        <label for="email">Seu E-mail</label>
-                        <input type="email" name="email" required placeholder="Digite aqui">
-                        <br>
-                        <label for="message">Mensagem</label>
-                        <textarea name="message" id="message" required placeholder="Digite aqui"></textarea>
-                        <br>
-                        <input type="submit" value="Enviar Mensagem" translate="">
-                       </form>
-                    </div>
-                </div>
-
-            </section>
-
-
-
-            <footer>
-                <div class="footer">
-                    <img src="imagens/Yf73ajZS.jpg" alt=""> 
-                    <p>© 2026 Gustavo Henrique. All rights reserved.</p>
-                    <ul>
-                        <li><a href="#Projects">Projetos</a></li>
-                        <br>
-                        <li><a href="#SobreMim">Sobre Mim</a></li>
-                        <br>
-                        <li><a href="#Contact">Contatos</a></li>
-                    </ul>
-
-                    
-                </div>
-                 
-                
-                
-            </footer>
-                    
-    
-    
-
-
-<script src="script.js"></script>
-
+(function(){
+  var root=document.documentElement, btns=document.querySelectorAll('.palette button');
+  function set(p){
+    if(p!=='pb')p='azul';
+    if(p==='pb'){root.setAttribute('data-palette','pb')}else{root.removeAttribute('data-palette')}
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.p===p))});
+  }
+  try{var saved=localStorage.getItem('palette');if(saved)set(saved)}catch(e){}
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    set(b.dataset.p);
+    try{localStorage.setItem('palette',b.dataset.p)}catch(e){}
+  })});
+})();
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target, s=document.getElementById('status');
+  var nome=f.nome.value.trim(), email=f.email.value.trim(), msg=f.msg.value.trim();
+  if(!nome||!/^\S+@\S+\.\S+$/.test(email)||!msg){s.textContent='Preencha nome, um e-mail válido e a mensagem.';return}
+  var txt='Olá, Gustavo! Sou '+nome+' ('+email+').\n\n'+msg;
+  window.open('https://wa.me/5511962367577?text='+encodeURIComponent(txt),'_blank','noopener');
+  s.textContent='Abrindo o WhatsApp com a sua mensagem.';
+  f.reset();
+});
+</script>
 </body>
 </html>
-
