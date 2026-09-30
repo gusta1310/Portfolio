@@ -93,6 +93,9 @@ nav a:hover{color:var(--ink);border-color:var(--accent)}
 .project img{aspect-ratio:16/10;object-fit:cover;width:100%;border-bottom:1px solid var(--line);background:var(--line)}
 .project .body{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1}
 .project p{color:var(--muted);flex:1}
+.project.wide{grid-column:1/-1;flex-direction:row}
+.project.wide img{width:58%;aspect-ratio:auto;object-fit:cover;object-position:top left;border-bottom:0;border-right:1px solid var(--line)}
+.project.wide .body{justify-content:center;padding:36px}
 .project a.link{font-weight:700;color:var(--accent);text-decoration:none}
 .project a.link:hover{text-decoration:underline}
 
@@ -182,6 +185,9 @@ body{overflow-x:clip}
   .hero .wrap{gap:36px}
   .courses{grid-template-columns:repeat(2,1fr)}
   .contact{gap:32px}
+  .project.wide{flex-direction:column}
+  .project.wide img{width:100%;aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--line)}
+  .project.wide .body{padding:24px}
   .tools{grid-template-columns:1fr;--gap:44px;--drop:0px;max-width:520px;margin-inline:auto}
   .tools .card{height:auto}
   .tools .card:nth-child(n){margin-top:0}
@@ -326,6 +332,14 @@ body{overflow-x:clip}
           <h3>Gerenciador de Tarefas</h3>
           <p>Gerenciador de tarefas feito com React e Tailwind CSS, para praticar desenvolvimento front-end e me ajudar nas minhas tarefas diárias.</p>
           <a class="link" href="https://github.com/gusta1310/Projeto-REACT-TAILWIND" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+      </article>
+      <article class="project wide">
+        <img src="imagens/Visao_Geral.jpeg" alt="Captura de tela do Dashboard de Vendas no Power BI, com faturamento por vendedor, categoria e região" loading="lazy">
+        <div class="body">
+          <h3>Dashboard de Vendas</h3>
+          <p>Dashboard desenvolvido com Excel e Power BI para analisar o desempenho dos vendedores, as vendas, as regiões e os produtos, com indicadores de faturamento, ticket médio e formas de pagamento. Usei DAX e Power Query na modelagem dos dados.</p>
+          <a class="link" href="https://github.com/gusta1310/ProjetoAnaliseDados" target="_blank" rel="noopener">Ver projeto</a>
         </div>
       </article>
     </div>
