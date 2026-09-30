@@ -26,6 +26,15 @@
 :root[data-theme="dark"]{--bg:#0e1424;--surface:#161e33;--ink:#e9edf7;--muted:#9aa6c0;--line:#27324d;--accent:#7b9bff;--accent-ink:#0e1424}
 :root[data-palette="pb"][data-theme="dark"]{--bg:#0a0a0a;--surface:#141414;--ink:#f5f5f5;--muted:#a3a3a3;--line:#2a2a2a;--accent:#ffffff;--accent-ink:#0a0a0a}
 
+/* Gradiente branco da seção de contato */
+#Contact{
+  background:#ffffff;
+  --bg:#ffffff;--surface:#ffffff;--ink:#0a0a0a;--muted:#333333;--line:#cfd5e2;
+  --accent:#2f5bff;--accent-ink:#ffffff;
+  color:var(--ink)
+}
+:root[data-palette="pb"] #Contact{--accent:#0a0a0a;--line:#d0d0d0}
+
 /* Seletor de paleta */
 .palette{display:flex;gap:8px;align-items:center}
 .palette button{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;transition:transform .15s,border-color .15s}
@@ -101,7 +110,7 @@ h2.sub{margin-top:170px}
 .course p{font-size:.98rem}
 
 /* Cursos acadêmicos: painel destacado com linha do tempo */
-.edu{margin-top:170px;background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:64px 56px}
+.edu{margin-top:260px;background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:64px 56px}
 .edu-head{display:flex;align-items:center;gap:18px;margin-bottom:12px}
 .edu-head .cap{flex:none;width:56px;height:56px;border-radius:16px;background:var(--accent-ink);color:var(--accent);display:grid;place-items:center}
 .edu-head svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -142,12 +151,12 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 @keyframes blink{50%{opacity:0}}
 
 /* Revelação das seções ao rolar */
-.js section:not(.hero){opacity:0;transform:translateX(-70px);transition:opacity 1.4s ease,transform 1.4s cubic-bezier(.22,.61,.36,1)}
-.js section.visible{opacity:1;transform:none}
+.js section:not(.hero),.js .reveal{opacity:0;transform:translateX(-70px);transition:opacity 1.4s ease,transform 1.4s cubic-bezier(.22,.61,.36,1)}
+.js section.visible,.js .reveal.visible{opacity:1;transform:none}
 body{overflow-x:clip}
 
 @media (prefers-reduced-motion:reduce){
-  .js section:not(.hero){opacity:1;transform:none}
+  .js section:not(.hero),.js .reveal{opacity:1;transform:none}
   .live.typing::after{animation:none}
 }
 @media (max-width:1024px){
@@ -163,7 +172,7 @@ body{overflow-x:clip}
   .hero p.lead{max-width:none}
   .photo{width:min(70%,280px);order:-1;justify-self:start}
   h2.sub{margin-top:120px}
-  .edu{margin-top:120px;padding:48px 32px}
+  .edu{margin-top:180px;padding:48px 32px}
   .timeline{grid-template-columns:1fr;padding-left:36px;gap:20px}
   .timeline::before{left:8px;right:auto;top:0;bottom:0;width:2px;height:auto}
   .timeline li{padding-top:0}
@@ -290,6 +299,7 @@ body{overflow-x:clip}
       </article>
     </div>
 
+    <div class="reveal tools-block">
     <h2 class="sub">Caixa de Ferramentas</h2>
     <div class="tools">
       <div class="card"><h3>Front-end</h3>
@@ -299,8 +309,9 @@ body{overflow-x:clip}
       <div class="card"><h3>Banco de dados</h3>
         <ul class="chips"><li>MySQL</li><li>SQL Server</li><li>MongoDB</li></ul></div>
     </div>
+    </div>
 
-    <div class="edu">
+    <div class="edu reveal">
       <div class="edu-head">
         <span class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></svg></span>
         <h2>Cursos acadêmicos</h2>
@@ -368,10 +379,17 @@ if('IntersectionObserver' in window && !reduzir){
     entries.forEach(function(en){
       if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}
     });
-  },{threshold:0.05,rootMargin:'0px 0px -60px 0px'});
-  document.querySelectorAll('section').forEach(function(s){obs.observe(s)});
+  },{threshold:0,rootMargin:'-40% 0px -40% 0px'}); // só a faixa central (20%) da tela conta
+  var secoes=document.querySelectorAll('section,.reveal');
+  secoes.forEach(function(s){obs.observe(s)});
+  // Segurança: no fim da página, revela o que ainda estiver escondido
+  window.addEventListener('scroll',function(){
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4){
+      secoes.forEach(function(s){s.classList.add('visible')});
+    }
+  },{passive:true});
 }else{
-  document.querySelectorAll('section').forEach(function(s){s.classList.add('visible')});
+  document.querySelectorAll('section,.reveal').forEach(function(s){s.classList.add('visible')});
 }
 
 // Máquina de escrever: título e depois subtítulo
