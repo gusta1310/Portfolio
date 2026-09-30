@@ -104,6 +104,25 @@ nav a:hover{color:var(--ink);border-color:var(--accent)}
 h2.sub{margin-top:170px}
 .projects{margin-bottom:0}
 
+/* Ferramentas em degraus, ligadas por uma linha */
+.tools{--gap:32px;--drop:56px;grid-template-columns:repeat(4,1fr);gap:var(--gap);align-items:start;padding-bottom:8px}
+.tools .card{position:relative;height:250px;padding:26px 22px}
+.tools .card:nth-child(2){margin-top:var(--drop)}
+.tools .card:nth-child(3){margin-top:calc(var(--drop)*2)}
+.tools .card:nth-child(4){margin-top:calc(var(--drop)*3)}
+/* linha em degrau: sai do meio de um card e chega ao meio do próximo */
+.tools .card:not(:last-child)::after{
+  content:"";position:absolute;left:100%;top:calc(50% - 1px);width:var(--gap);height:calc(var(--drop) + 2px);
+  background:
+    linear-gradient(var(--accent),var(--accent)) 0 0/50% 2px no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 50% 0/2px 100% no-repeat,
+    linear-gradient(var(--accent),var(--accent)) 100% 100%/50% 2px no-repeat}
+/* pontos nas extremidades da linha */
+.tools .card:not(:last-child)::before,.tools .card:not(:first-child) h3::before{
+  content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);top:calc(50% - 5px);z-index:1}
+.tools .card:not(:last-child)::before{right:-5px}
+.tools .card:not(:first-child) h3::before{left:-5px}
+
 /* Cursos */
 .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .course .meta{font-size:.92rem;color:var(--muted);margin-bottom:10px}
@@ -163,6 +182,12 @@ body{overflow-x:clip}
   .hero .wrap{gap:36px}
   .courses{grid-template-columns:repeat(2,1fr)}
   .contact{gap:32px}
+  .tools{grid-template-columns:1fr;--gap:44px;--drop:0px;max-width:520px;margin-inline:auto}
+  .tools .card{height:auto}
+  .tools .card:nth-child(n){margin-top:0}
+  .tools .card:not(:last-child)::after{left:calc(50% - 1px);top:100%;width:2px;height:var(--gap);background:var(--accent)}
+  .tools .card:not(:last-child)::before{right:auto;left:calc(50% - 5px);top:auto;bottom:-5px}
+  .tools .card:not(:first-child) h3::before{right:auto;top:-5px;left:calc(50% - 5px)}
 }
 @media (max-width:860px){
   section{padding:104px 0}
@@ -180,6 +205,12 @@ body{overflow-x:clip}
   html{scroll-padding-top:110px}
   header.top .wrap{height:auto;flex-wrap:wrap;gap:6px 16px;padding-top:10px;padding-bottom:10px}
   .tools-right{width:100%;justify-content:space-between;gap:12px}
+  .tools{--gap:44px;--drop:0px}
+  .tools .card{height:auto}
+  .tools .card:nth-child(2),.tools .card:nth-child(3){margin-top:0}
+  .tools .card:not(:last-child)::after{left:calc(50% - 1px);top:100%;width:2px;height:var(--gap);background:var(--accent)}
+  .tools .card:not(:last-child)::before{right:auto;left:calc(50% - 5px);top:auto;bottom:-5px}
+  .tools .card:not(:first-child) h3::before{left:auto;right:auto;top:-5px;left:calc(50% - 5px)}
   nav ul{gap:16px}
   nav a{font-size:.95rem}
 }
@@ -307,7 +338,9 @@ body{overflow-x:clip}
       <div class="card"><h3>Back-end</h3>
         <ul class="chips"><li>Node.js</li><li>Python</li></ul></div>
       <div class="card"><h3>Banco de dados</h3>
-        <ul class="chips"><li>MySQL</li><li>SQL Server</li><li>MongoDB</li></ul></div>
+        <ul class="chips"><li>SQL Server</li><li>SQLite</li></ul></div>
+      <div class="card"><h3>Análise de dados</h3>
+        <ul class="chips"><li>Excel</li><li>Power BI</li></ul></div>
     </div>
     </div>
 
